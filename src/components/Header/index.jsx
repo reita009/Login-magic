@@ -1,6 +1,7 @@
 import * as C from './styled'
 
 import Logo from '../../assets/Logo.png';
+import { Link } from 'react-router-dom';
 
 const Header = () =>{
 
@@ -14,8 +15,9 @@ const Header = () =>{
 
                     <nav>
                         <ul>
-                            <li>Configurações</li>
-                            <li>Sair</li>
+                            <li><Link to="/">Home</Link></li>
+                            <li><Link to="/config">Configurações</Link></li>
+                            <li><Link to="/logout">Sair</Link></li>
                         </ul>
                     </nav>
                 </div>
