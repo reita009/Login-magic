@@ -2,6 +2,12 @@ import * as C from "./styled";
 import { Link,BrowserRouter,Routes,Route } from "react-router-dom";
 import { BtnSocial,BtnSubmit } from "../../components/BtnSocial/styled";
 import { useState } from "react";
+
+
+//fireBase
+import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { auth } from '../../FireBaseConfig';
+
 //icons
 import FacebookIcon from '@mui/icons-material/Facebook';
 import GoogleIcon from '@mui/icons-material/Google';
@@ -9,13 +15,28 @@ import GoogleIcon from '@mui/icons-material/Google';
 
 import Registrar from "../Registrar";
 
-const Login = () =>{
+const Login = ({onReceiveGoogle}) =>{
 
     const [active, setAactive] = useState(true)
 
     const handleActive = () =>{
         setAactive(false)
     }
+    const handleGoogleSignIn = () =>{
+        const provider = new GoogleAuthProvider();
+
+        signInWithPopup(auth, provider)
+        .then((result)=>{
+            onReceiveGoogle(result.user)
+            console.log(result);
+        }).catch((error)=>{
+            console.log(error);
+        })
+
+        
+    }
+
+    
 
     return(
         <>
@@ -31,7 +52,7 @@ const Login = () =>{
                     </div>
                 </BtnSocial>
 
-                <BtnSocial>
+                <BtnSocial onClick={ handleGoogleSignIn } >
                     <GoogleIcon />
                     <div className="center">
                     Fazer login com Google

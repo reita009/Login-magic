@@ -18,17 +18,27 @@ function App() {
 
   const [user, setUser] = useState(null); 
 
+  const actinLoginDataGoogle = async (u) =>{
+      let newUser = {
+          id: u.id,
+          name: u.displayName,
+          avatar: u.photoURL
+      }
+
+      setUser(newUser);
+  }
+
     if(user === null){
        return(
-        <Login />
+        <Login onReceiveGoogle={ actinLoginDataGoogle } />
        )
     }
 
   return (
     <BrowserRouter>
-         <Header />
+         <Header user={user} />
             <Routes>
-                <Route path="/" element={ <Home/> } />
+                <Route path="/" element={ <Home /> } />
                 <Route path="/config" element={ <Config/> } />
             </Routes>
          <Footer />

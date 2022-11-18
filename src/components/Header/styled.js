@@ -21,7 +21,8 @@ export const HeaderArea = styled.div`
             }
         }
         nav{
-
+            display: flex;
+            align-items: center;
             ul{
                 display: flex;
 
@@ -39,6 +40,22 @@ export const HeaderArea = styled.div`
                     }
                 }
             }
+
+            .user{
+                margin-left: 20px;
+                display: flex;
+                align-items: center;
+            }
         }
 `;
 
+export const Avatar = styled.img`
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+`;
+
+export const NameUser = styled.h1`
+    font-size: 27px;
+    margin-right: 20px;
+`;
