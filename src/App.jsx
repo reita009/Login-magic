@@ -1,6 +1,6 @@
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+import { useState } from "react";
 import './App.css';
 
 //Components
@@ -9,10 +9,20 @@ import Footer from './components/footer';
 //Pages
 import Home from "./Pages/Home";
 import Config from "./Pages/Config";
+import Login from "./Pages/Login";
+
 
 
 
 function App() {
+
+  const [user, setUser] = useState(null); 
+
+    if(user === null){
+       return(
+        <Login />
+       )
+    }
 
   return (
     <BrowserRouter>
