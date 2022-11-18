@@ -11,6 +11,8 @@ export const AreaLogin = styled.div`
     border-radius: 5px;
     box-shadow: 0px 0px 10px #CCC;
 
+    
+
     p{
         text-align: center;
         margin-top: 10px;
@@ -61,3 +63,14 @@ export const TitleLogin = styled.h1`
     font-size: 24px;
 `;
 
+//css Registre
+
+
+export const TitleRegister = styled.h1`
+    font-size: 24px;
+    text-align: center;
+`;
+
+export const ParagraphRegister = styled.p`
+    color:#9c9c9c ;
+`;
